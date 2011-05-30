@@ -1,0 +1,32 @@
+%tbody
+	%tr
+		%td= a.label		:first_name, 	'First Name'
+		%td= a.text_field :first_name
+		
+	%tr
+		%td= a.label		:last_name, 	'Last Name'
+		%td= a.text_field :last_name
+
+	%tr
+		%td= a.label 		:address1, 		'Address 1'
+		%td= a.text_field :address1
+	
+	%tr
+		%td= a.label		:address2, 		'Address 2'
+		%td= a.text_field :address2
+
+	%tr
+		%td= a.label		:city
+		%td= a.text_field	:city
+
+	%tr
+		%td= a.label		:postal_code, 	'Postal Code'
+		%td= a.text_field :postal_code
+
+	%tr
+		%td= label_tag		"#{ type }_address[country]", 'Country'
+		%td= select_tag 	"#{ type }_address[country]", raw( country_options_for_select "US", "US", "CA" )
+
+	%tr
+		%td= a.label		:state, 			'State / Province'
+		%td{ :id => "#{ type }_state" }= a.text_field :state

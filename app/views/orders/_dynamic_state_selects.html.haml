@@ -1,0 +1,26 @@
+:javascript
+	$(document).ready( function() {
+		$('#shipping_state').html( '#{ escape_javascript( render 'state_select', :country => 'US' ) }' );
+
+		$('#shipping_address_country').change( function() {
+			var country_code = $('#shipping_address_country option:selected').attr('value');
+			
+			$.ajax({
+				type: 	 "GET",
+				dataType: "script",
+				url: 		 '/update_state_select?type=shipping&country=' + country_code
+			});
+		});
+		
+		$('#billing_state').html( '#{ escape_javascript( render 'state_select', :country => 'US' ) }' );
+		
+		$('#billing_address_country').change( function() {
+			var country_code = $('#billing_address_country option:selected').attr('value');
+			
+			$.ajax({
+				type: 	 "GET",
+				dataType: "script",
+				url: 		 '/update_state_select?type=billing&country=' + country_code
+			});
+		});
+	});

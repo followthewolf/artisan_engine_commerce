@@ -1,0 +1,5 @@
+= form_for :line_item, :url => line_items_path do |f|
+	= render 'show'
+	
+	= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
+	= f.submit 'Add to Order'

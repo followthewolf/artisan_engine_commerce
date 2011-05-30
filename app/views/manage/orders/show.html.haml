@@ -1,0 +1,59 @@
+%h1 Manage Order #{ @order.id }
+
+#order_details
+	#patron
+		%h4 Patron
+		= render @order.patron
+
+	#order_status	
+		%h4 Order Status
+		#payment
+			#method
+				%p
+					Payment Method: 
+					%strong PayPal WPS
+		
+			#status
+				%p 
+					Payment Status: 
+					%strong= @order.status.capitalize
+	
+		#fulfillment
+			#status
+				%p 
+					Fulfillment Status: 
+					%strong= @order.fulfillment_status
+		
+			#action
+				= link_to 'Fulfill Items', new_order_fulfillment_path( @order ) if @order.fulfillment_status != 'Fulfilled' 
+
+	#addresses
+		#shipping
+			%h4 Shipping Address
+			= render @order.shipping_address
+
+		#billing
+			%h4 Billing Address
+			= render @order.billing_address
+
+	#line_items
+		%h4 Line Items
+		%table
+			%tbody
+				%tr
+					%th SKU
+					%th Name
+					%th Options
+					%th Price
+					%th Quantity
+					%th Total
+				
+				= render @order.line_items
+				= render @order.adjustments
+								
+				%tr
+					%td{ :colspan => 4 }
+					%td
+						%strong Order Total
+					%td
+						%strong= @order.total.format

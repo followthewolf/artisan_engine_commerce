@@ -1,0 +1,12 @@
+.DS_STORE
+
+.bundle/
+pkg/
+
+*.log
+log/*.log
+
+spec/dummy/tmp/
+spec/dummy/public/system/
+spec/dummy/log/*.log
+spec/dummy/db/*.sqlite3

@@ -1,0 +1,15 @@
+:javascript
+	$(document).ready( function() {
+		$('#loading').show();
+		$('form').hide().submit();
+	});
+
+= form_tag ArtisanEngine::Commerce::PaypalWPS.paypal_url do
+	= hidden_field_tag :cmd, '_s-xclick'
+	= hidden_field_tag :encrypted, @order.to_paypal
+	
+	= submit_tag 'Continue to PayPal'
+
+#loading{ :style => 'display:none; text-align: center;' }
+	%h3 You are being redirected to PayPal's secure server to complete your payment.
+	= image_tag 'artisan_engine/commerce/loading.gif'

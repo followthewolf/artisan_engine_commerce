@@ -1,0 +1,40 @@
+#order_details
+	+column( 24, true )
+	
+	#patron
+		+column( 10 )
+
+	#order_status
+		+column( 14, true )
+	
+		#payment
+			+column( 14, true )
+		
+			#method
+				+column( 7 )
+		
+			#status
+				+column( 7, true )
+	
+		#fulfillment
+			+column( 14, true )
+		
+			#status
+				+column( 7 )
+		
+			#action
+				+column( 7, true )
+	
+	#addresses
+		+column( 24, true )
+		+clearfix
+		
+		#shipping
+			+column( 12 )
+	
+		#billing
+			+column( 12, true )
+
+	#line_items
+		+column( 24, true )
+		margin-top: 20px

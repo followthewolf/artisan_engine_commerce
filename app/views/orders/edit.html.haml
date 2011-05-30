@@ -1,0 +1,39 @@
+= render 'shipping_is_billing'
+= render 'dynamic_state_selects'
+
+= form_for @order, :url => checkout_path do |f|
+	#patron_info
+		%h2 Your Contact E-Mail:
+		%table
+			%tbody
+				%tr
+					%td= f.label 		:email, 'Your Contact E-Mail'
+					%td= f.text_field :email
+	
+	#addresses
+		#shipping_address
+			%h2 Ship To:
+			%table
+				= render 'shared/form_errors', :object => @shipping_address
+		
+				= fields_for :shipping_address, @shipping_address do |a|
+					= render 'address_fields', :a => a, :type => 'shipping'
+			
+					%tr
+						%td{ :colspan => 2 }
+							=check_box_tag :shipping_is_billing, '1', !@billing_errors
+							=label_tag 	 :shipping_is_billing, 'My billing address is the same as my shipping address.'
+		
+		#billing_address
+			%h2 Bill To:
+			%table
+				= render 'shared/form_errors', :object => @billing_address
+		
+				= fields_for :billing_address, @billing_address do |a|
+					= render 'address_fields', :a => a, :type => 'billing'
+	
+			#billing_address_placeholder{ :style => "display: none;" }
+				%p Order will be billed to your shipping address.
+	
+	#checkout_submit= f.submit 'Pay with PayPal'
+

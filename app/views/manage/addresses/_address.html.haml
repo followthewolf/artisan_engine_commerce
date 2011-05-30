@@ -1,0 +1,14 @@
+= address.first_name + " " + address.last_name
+%br
+
+= address.address1
+%br
+
+- unless address.address2.blank?
+	= address.address2
+	%br
+
+= "#{ address.city }, #{ Carmen.state_name( address.state ) } #{address.postal_code }"
+%br
+
+= Carmen.country_name( address.country )

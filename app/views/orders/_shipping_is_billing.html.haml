@@ -1,0 +1,19 @@
+:javascript
+	$(document).ready( function() {
+		if ( $('#shipping_is_billing').is( ":checked" ) ) {
+			$('#billing_address').hide();
+			$('#billing_address_placeholder').show();
+		}
+	
+		$('#shipping_is_billing').click( function() {
+			if ( $(this).is( ":checked" ) ) {
+				$('#billing_address').hide();
+				$('#billing_address_placeholder').show();
+			}
+		
+			else {
+				$('#billing_address').show();
+				$('#billing_address_placeholder').hide();
+			}
+		});
+	});

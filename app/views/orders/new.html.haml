@@ -1,0 +1,15 @@
+%h1 Your Order
+
+%table#line_items
+	%thead
+		%tr
+			%th Description
+			%th Price
+			%th Quantity
+			%th Remove
+			%th Total
+	%tbody
+		= render @order.line_items
+
+#proceed_to_checkout
+	= link_to 'Checkout', checkout_path

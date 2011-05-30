@@ -1,0 +1,25 @@
+%h1 Fulfill Items for Order #{ parent.id }
+
+= form_for @fulfillment, :url => order_fulfillments_path( parent ) do |f|
+	#items
+		%h4 Items
+		- for item in parent.unfulfilled_line_items
+			= check_box_tag "fulfillment[line_item_ids][]", item.id, true
+			= label_tag "fulfillment[line_item_ids][]", item.name
+			%br
+			
+	#details
+		%h4 Details
+		%table
+			%tbody
+				%tr
+					%td= f.label		:cost
+					%td= f.text_field	:cost
+	
+				%tr
+					%td= f.label		:tracking
+					%td= f.text_field :tracking
+	
+				%tr
+					%td
+					%td= f.submit 'Fulfill'

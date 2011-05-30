@@ -1,0 +1,8 @@
+- if Carmen::states?( @country_code )
+	:plain
+		$('##{ @type }_state').parent().show();
+		$('##{ @type }_state').html( '#{ escape_javascript( render 'state_select', :country => @country_code ) }' );
+
+- else
+	:plain
+		$('##{ @type }_state').parent().hide();

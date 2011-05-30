@@ -1,0 +1,9 @@
+%tr.line_item
+	%td.description
+		= line_item.name
+		%br
+		= line_item.options
+	%td.price= line_item.price.format
+	%td.quantity= line_item.quantity
+	%td= link_to 'Remove', '#'
+	%td.total= ( line_item.price * line_item.quantity ).format
