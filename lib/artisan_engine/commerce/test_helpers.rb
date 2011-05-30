@@ -126,9 +126,9 @@ module ArtisanEngine
           page.driver.post '/ipns', :txn_id         => options[ :ref ]      || 'TESTTRANS',
                                     :invoice        => options[ :order ]    || Order.last.id,
                                     :payment_status => options[ :status ]   || 'Completed',
-                                    :settle_amount  => options[ :price ]    || Forgery::Monetary.money( :min => 1, :max => 500 ),
+                                    :mc_gross       => options[ :price ]    || Forgery::Monetary.money( :min => 1, :max => 500 ),
                                     :secret         => options[ :secret ]   || ArtisanEngine::Commerce::PaypalWPS.secret,
-                                    :shipping       => options[ :shipping ] || 0,
+                                    :mc_shipping    => options[ :shipping ] || 0,
                                     :tax            => options[ :tax ]      || 0
         end
         
