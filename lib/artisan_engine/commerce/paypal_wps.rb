@@ -2,11 +2,11 @@ module ArtisanEngine
   module Commerce
     module PaypalWPS
       
-      mattr_accessor :paypal_url
-      @@paypal_url = 'https://www.sandbox.paypal.com/cgi_bin/webscr?'
-      
       mattr_accessor :secret
       @@secret = 'onelefts7anding'
+      
+      mattr_accessor :paypal_url
+      @@paypal_url = "https://www.sandbox.paypal.com/cgi_bin/webscr?secret=#{ ArtisanEngine::Commerce::PaypalWPS.secret }&"
       
       mattr_accessor :seller_email
       @@seller_email = 'seller_1306290307_biz@followthewolf.com'
