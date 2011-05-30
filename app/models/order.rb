@@ -127,9 +127,12 @@ class Order < ActiveRecord::Base
     }
     
     line_items.each_with_index do |item, index|
+      item_name = item.name
+      item_name += " (#{ item.options})" unless item.options.blank?
+      
       values.merge!({
         "amount_#{ index + 1 }"    => item.price,
-        "item_name_#{ index + 1 }" => item.name + ( " (#{ item.options })" unless item.options.blank? ),
+        "item_name_#{ index + 1 }" => item_name,
         "quantity_#{ index + 1 }"  => item.quantity
       })
     end
