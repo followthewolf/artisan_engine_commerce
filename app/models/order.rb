@@ -26,7 +26,7 @@ class Order < ActiveRecord::Base
       validates_presence_of :email, :shipping_address, :billing_address
     end
     
-    after_transition :new => :pending,     :do => :set_patron
+    after_transition :new     => :pending, :do => :set_patron
     after_transition :pending => :pending, :do => :set_patron
 
     state :purchased

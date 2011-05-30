@@ -1,16 +1,23 @@
 %h1 Your Order
 
-%table#line_items
-	%thead
-		%tr
-			%th
-			%th Description
-			%th Price
-			%th Quantity
-			%th Remove
-			%th Total
-	%tbody
-		= render @order.line_items
-
-#proceed_to_checkout
-	= link_to 'Checkout', checkout_path
+= form_tag update_line_items_path do |f|
+	%table#line_items
+		%thead
+			%tr
+				%th
+				%th Description
+				%th Price
+				%th Quantity
+				%th Remove
+				%th Total
+		%tbody
+			= render @order.line_items
+			%tr
+				%td{ :colspan => 5 }
+				%td
+					%strong Order Total
+					%br
+					= @order.total.format
+	#proceed_to_checkout
+		= submit_tag 'Update'
+		= link_to 'Checkout', checkout_path

@@ -10,4 +10,20 @@ class LineItemsController < FrontController
     
     redirect_to new_order_path
   end
+  
+  update! do |success, failure|
+    success.html { redirect_to new_order_path }
+  end
+  
+  destroy! do |success, failure|
+    success.html { redirect_to new_order_path }
+  end
+  
+  def update_all
+    params[ :line_item ].each do |key, value|
+      LineItem.find( key ).update_attributes( :quantity => value )
+    end
+    
+    redirect_to new_order_path
+  end
 end

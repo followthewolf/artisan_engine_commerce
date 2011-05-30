@@ -1,4 +1,12 @@
 PATH
+  remote: .
+  specs:
+    artisan_engine_commerce (0.0.1)
+      artisan_engine_catalog
+      carmen (= 0.2.7)
+      state_machine (= 1.0.0)
+
+PATH
   remote: ../attachability
   specs:
     artisan_engine_attachability (0.0.1)
@@ -41,14 +49,6 @@ PATH
   specs:
     artisan_engine_listability (0.0.1)
       artisan_engine_core
-
-PATH
-  remote: .
-  specs:
-    artisan_engine_commerce (0.0.1)
-      artisan_engine_catalog
-      carmen (= 0.2.7)
-      state_machine (= 1.0.0)
 
 GEM
   remote: http://rubygems.org/
