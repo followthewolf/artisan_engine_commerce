@@ -33,7 +33,7 @@ feature "Add a Line Item with Options to an Order", %q{
       page.should have_content 'Size: Large / Luminosity: Blinding'
       
       # A quantity of 1.
-      page.should have_selector '.quantity', :text => '1'
+      page.first( 'input' ).value.should == '1'
     end
   end
 end

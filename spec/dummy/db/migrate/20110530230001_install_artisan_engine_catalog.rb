@@ -4,8 +4,9 @@ class InstallArtisanEngineCatalog < ActiveRecord::Migration
     # ----------------------------- Goods ---------------------------- #
     
     create_table :goods do |t|
-      t.string    :name,            :null => false
+      t.string    :name,          :null => false
       t.text      :description
+      t.boolean   :unavailable,   :default => false
 
       t.timestamps
     end

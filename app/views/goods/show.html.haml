@@ -15,8 +15,12 @@
 
 		.price= price_for @variant
 		
-		= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
-		= f.submit 'Add to Order'
+		- unless @good.unavailable?
+			= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
+			= f.submit 'Add to Order'
+		- else
+			This item is available by custom order only.
+		
 		
 	#images
 		#main_image

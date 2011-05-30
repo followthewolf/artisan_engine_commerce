@@ -29,7 +29,7 @@ feature "Add a Line Item to an Order", %q{
       page.should have_content '$5,000'
     
       # A quantity of 1.
-      page.should have_selector '.quantity', :text => '1'
+      page.first( 'input' ).value.should == '1'
       
     end
   end
@@ -42,7 +42,9 @@ feature "Add a Line Item to an Order", %q{
     click_button 'Add to Order'
     
     # Then I should see one line item with a quantity of 2.
-    page.should have_selector '.line_item',           :count => 1
-    page.should have_selector '.line_item .quantity', :text => '2'
+    page.should have_selector '.line_item', :count => 1
+    within '.line_item' do
+      page.first( 'input' ).value.should == '2'
+    end
   end
 end
