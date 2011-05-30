@@ -2,6 +2,8 @@ class OrderTransactionsController < FrontController
   protect_from_forgery :except => [ :ipns ]
     
   def ipns
+    puts "Receiving IPN ..."
+    puts params
     params.delete( "controller" )
     params.delete( "action" )
     
