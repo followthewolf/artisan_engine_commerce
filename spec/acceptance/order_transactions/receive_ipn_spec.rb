@@ -19,7 +19,7 @@ feature "Receive PayPal IPNs", %q{
     visit '/manage/orders'
     
     # And I should see a Purchased order.
-    page.should have_selector '.order .status', :text => 'purchased'
+    page.should have_selector '.order .status', :text => 'Purchased'
   end
     
   scenario "Invalid IPNs do not update order status" do
@@ -30,6 +30,6 @@ feature "Receive PayPal IPNs", %q{
     visit '/manage/orders'
     
     # And I should see a Pending order.
-    page.should have_selector '.order .status', :text => 'pending'
+    page.should have_selector '.order .status', :text => 'Pending'
   end
 end

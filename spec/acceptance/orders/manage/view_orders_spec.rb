@@ -19,6 +19,6 @@ feature "View My Orders", %q{
     page.should have_selector '.order', :count => 3
     
     # And they should all be pending.
-    page.should have_selector '.order .status', :text => 'pending', :count => 3
+    page.should have_selector '.order .status', :text => 'Pending', :count => 3
   end
 end

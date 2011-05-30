@@ -21,6 +21,7 @@ module ArtisanEngine
       
       initializer 'include helpers' do
         ActiveSupport.on_load( :action_controller ) { include OrdersHelper }
+        ActiveSupport.on_load( :action_view )       { include OrdersHelper }
       end
       
       config.to_prepare do

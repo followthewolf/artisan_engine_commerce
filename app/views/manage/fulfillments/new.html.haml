@@ -7,6 +7,9 @@
 			= check_box_tag "fulfillment[line_item_ids][]", item.id, true
 			= label_tag "fulfillment[line_item_ids][]", item.name
 			%br
+			= item.options unless item.options.blank?
+			%br
+			%br
 			
 	#details
 		%h4 Details

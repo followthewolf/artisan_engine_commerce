@@ -1,5 +1,32 @@
+= render 'update_current_variant_on_selection_change'
+
 = form_for :line_item, :url => line_items_path do |f|
-	= render 'show'
+	#information
+		%h1= @good.name
+
+		.description
+			:markdown
+				#{ RDiscount.new( @good.description, :filter_html ).to_html }
+
+		#options
+			- for option_type in @good.option_types
+				= label_tag "#{ option_type.name }"
+				= select_tag_for_option_type( option_type )
+
+		.price= price_for @variant
+		
+		= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
+		= f.submit 'Add to Order'
+		
+	#images
+		#main_image
+			- if @variant.images.any?
+				= render @variant.images.first, :size => '470x470#', :gallery => 'gallery'
+			- else
+				= display_image( nil, '470x470#' )
+
+		#additional_images
+			- if @variant.images.any?
+				= render @variant.images.drop( 1 ), :size => '150x150#', :gallery => 'gallery'
 	
-	= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
-	= f.submit 'Add to Order'
+	
