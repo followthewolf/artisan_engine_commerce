@@ -114,19 +114,22 @@ class Order < ActiveRecord::Base
   
   def to_paypal
     values = {
-      :business   => ArtisanEngine::Commerce::PaypalWPS.seller_email,
-      :invoice    => id,
-      :cmd        => '_cart',
-      :upload     => 1,
-      :return     => ArtisanEngine::Commerce::PaypalWPS.return_url,
-      :notify_url => ArtisanEngine::Commerce::PaypalWPS.notify_url,
-      :cert_id    => ArtisanEngine::Commerce::PaypalWPS.paypal_certificate_id
+      :business      => ArtisanEngine::Commerce::PaypalWPS.seller_email,
+      :invoice       => id,
+      :cmd           => '_cart',
+      :upload        => 1,
+      :return        => ArtisanEngine::Commerce::PaypalWPS.return_url,
+      :notify_url    => ArtisanEngine::Commerce::PaypalWPS.notify_url,
+      :cancel_return => ArtisanEngine::Commerce::PaypalWPS.cancel_return_url,
+      :cert_id       => ArtisanEngine::Commerce::PaypalWPS.paypal_certificate_id,
+      :no_shipping   => 1,
+      :no_note       => 1
     }
     
     line_items.each_with_index do |item, index|
       values.merge!({
         "amount_#{ index + 1 }"    => item.price,
-        "item_name_#{ index + 1 }" => item.name + " (#{ item.options })",
+        "item_name_#{ index + 1 }" => item.name + ( " (#{ item.options })" unless item.options.blank? ),
         "quantity_#{ index + 1 }"  => item.quantity
       })
     end

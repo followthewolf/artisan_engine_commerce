@@ -13,6 +13,9 @@ module ArtisanEngine
 
       mattr_accessor :return_url
       @@return_url = 'http://artisanengine.com/orders'
+      
+      mattr_accessor :cancel_return_url
+      @@return_url = 'http://artisanengine.com/orders'
 
       mattr_accessor :notify_url
       @@notify_url = "http://artisanengine.com/ipns?secret=#{ ArtisanEngine::Commerce::PaypalWPS.secret }"

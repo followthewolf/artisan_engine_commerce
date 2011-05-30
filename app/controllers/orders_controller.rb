@@ -28,6 +28,10 @@ class OrdersController < FrontController
   def paypal
   end
   
+  # GET /confirm
+  def confirm
+  end
+  
   # GET /update_state_select
   def update_state_select
     @country_code = params[ :country ]

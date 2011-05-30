@@ -5,9 +5,10 @@ describe OrderTransactionsController do
     let( :params ) { { "txn_id"         => 'TESTTRANS',
                        "invoice"        => '1',
                        "payment_status" => 'Completed',
-                       "settle_amount"  => '500.35',
+                       "mc_gross"       => '500.35',
                        "tax"            => '5.00', 
-                       "shipping"       => '25.00' } }
+                       "mc_shipping"    => '25.00',
+                       "payment_fee"    => "1.28" } }
     
     let( :order_transaction ) { mock_model( 'OrderTransaction' ).as_null_object }
     let( :order )             { mock_model( 'Order' ).as_null_object }
@@ -30,7 +31,7 @@ describe OrderTransactionsController do
         it "creates an OrderTransaction (purchase) using PayPal's data" do
           OrderTransaction.should_receive( :create! ).with( :order_id  => params[ "invoice" ],
                                                             :reference => params[ "txn_id" ],
-                                                            :amount    => params[ "settle_amount" ],
+                                                            :amount    => params[ "mc_gross" ].to_money,
                                                             :message   => 'Instant Payment Notification received from PayPal',
                                                             :action    => 'purchase',
                                                             :params    => params )
@@ -45,18 +46,21 @@ describe OrderTransactionsController do
           end
           
           describe "order adjustments: " do
-            it "creates order adjustments for tax and shipping" do
-              order_transaction.order.adjustments.should_receive( :create! ).with( :amount => "5.00", 
+            it "creates order adjustments for tax, shipping, and PayPal fee" do
+              order_transaction.order.adjustments.should_receive( :create! ).with( :amount => "5.00".to_money, 
                                                                                    :message => "PayPal-Calculated Tax" )
-              order_transaction.order.adjustments.should_receive( :create! ).with( :amount => "25.00", 
+              order_transaction.order.adjustments.should_receive( :create! ).with( :amount => "25.00".to_money, 
                                                                                    :message => "PayPal-Calculated Shipping" )
-            
+              order_transaction.order.adjustments.should_receive( :create! ).with( :amount => "-1.28".to_money,
+                                                                                   :message => "PayPal Transaction Fee" )
+              
               post 'ipns', params
             end
             
-            it "does not create an order adjustment if the tax or shipping is 0" do
-              params[ :tax ] = "0.00"
-              params[ :shipping ] = "0.00"
+            it "does not create an order adjustment if the tax, shipping, or fee is 0" do
+              params[ :tax ]         = "0.00"
+              params[ :mc_shipping ] = "0.00"
+              params[ :payment_fee ] = "0.00"
               
               order_transaction.order.adjustments.should_not_receive( :create! )
             

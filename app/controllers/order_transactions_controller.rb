@@ -2,15 +2,13 @@ class OrderTransactionsController < FrontController
   protect_from_forgery :except => [ :ipns ]
     
   def ipns
-    puts "Receiving IPN ..."
-    puts params
     params.delete( "controller" )
     params.delete( "action" )
     
     if valid_secret? and transaction_has_not_been_handled?
       @ot = OrderTransaction.create!( :order_id  => params[ :invoice ],
                                       :reference => params[ :txn_id ],
-                                      :amount    => params[ :settle_amount ],
+                                      :amount    => params[ :mc_gross ].to_money,
                                       :message   => 'Instant Payment Notification received from PayPal',
                                       :action    => 'purchase',
                                       :params    => params )
@@ -18,11 +16,15 @@ class OrderTransactionsController < FrontController
       if params[ :payment_status ] == 'Completed'
         @ot.success = true
         @ot.order.purchase!
-        
-        @ot.order.adjustments.create! :amount  => params[ :tax ], 
-                                      :message => 'PayPal-Calculated Tax' unless params[ :tax ].to_f.zero?
-        @ot.order.adjustments.create! :amount  => params[ :shipping ], 
-                                      :message => 'PayPal-Calculated Shipping' unless params[ :shipping ].to_f.zero?
+
+        @ot.order.adjustments.create! :amount  => params[ :tax ].to_money, 
+                                      :message => 'PayPal-Calculated Tax' unless params[ :tax ].to_money.zero?
+                                      
+        @ot.order.adjustments.create! :amount  => params[ :mc_shipping ].to_money, 
+                                      :message => 'PayPal-Calculated Shipping' unless params[ :mc_shipping ].to_money.zero?
+                                      
+        @ot.order.adjustments.create! :amount  => ( "-" + params[ :payment_fee ] ).to_money, 
+                                      :message => 'PayPal Transaction Fee' unless params[ :payment_fee ].to_money.zero?
       else
         @ot.success = false
       end

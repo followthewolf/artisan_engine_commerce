@@ -1,6 +1,7 @@
 # ---------- Set up gems from the parent gem's Gemfile. ---------- #
 
 require 'rubygems'
+require 'sqlite3'
 gemfile = File.expand_path( '../../../../Gemfile', __FILE__ )
 
 if File.exist?( gemfile )
