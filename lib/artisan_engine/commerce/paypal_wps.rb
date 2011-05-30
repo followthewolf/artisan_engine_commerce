@@ -15,7 +15,7 @@ module ArtisanEngine
       @@return_url = 'http://artisanengine.com/orders'
 
       mattr_accessor :notify_url
-      @@notify_url = "http://artisanengine.com/payment_notifications?secret=#{ ArtisanEngine::Commerce::PaypalWPS.secret }"
+      @@notify_url = "http://artisanengine.com/ipns?secret=#{ ArtisanEngine::Commerce::PaypalWPS.secret }"
       
       mattr_accessor :paypal_certificate_id
       @@paypal_certificate_id = '8XWLPQF9JKCRQ'

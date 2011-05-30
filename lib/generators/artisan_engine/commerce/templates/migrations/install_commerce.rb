@@ -20,7 +20,7 @@ class InstallCommerce < ActiveRecord::Migration
       t.string    :reference,       :null    => false
       t.string    :message,         :null    => false
       t.string    :action,          :null    => false
-      t.string    :params
+      t.text      :params
       t.boolean   :test,            :default => false,
                                     :null    => false
       
