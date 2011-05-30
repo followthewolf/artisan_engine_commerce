@@ -1,5 +1,16 @@
+- content_for :javascripts do
+	= javascript_include_tag 'artisan_engine/catalog/tablesorter/jquery.tablesorter.min'
+
+	:javascript
+		$(document).ready( function() {
+			$(".tablesorter").tablesorter(); 
+		});
+
+- content_for :stylesheets do
+	= stylesheet_link_tag 'artisan_engine/catalog/embed/tablesorter/blue/blue'
+
 %h1 Manage Orders
-%table
+%table#orders.tablesorter
 	%thead
 		%tr
 			%th ID

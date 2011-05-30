@@ -1,5 +1,5 @@
 %tr[ order ]
 	%td= order.id
-	%td.status= order.status
+	%td.status= order.status.titleize
 	%td.fulfillment_status= order.fulfillment_status
 	%td= link_to 'Details', manage_order_path( order )
