@@ -21,7 +21,7 @@ class InstallCommerce < ActiveRecord::Migration
       t.string    :message,         :null    => false
       t.string    :action,          :null    => false
       t.string    :params
-      t.boolean   :test,            :default => 0,
+      t.boolean   :test,            :default => false,
                                     :null    => false
       
       t.timestamps
