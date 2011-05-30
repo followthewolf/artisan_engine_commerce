@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachability.git
-  revision: 656865ad7496c00728942b0a3084fcedfd2cc59d
+  revision: 71beccb3f01e0b4b57807f7be843fd8dfcae1fd5
   specs:
     artisan_engine_attachability (0.0.1)
       artisan_engine_core
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachments.git
-  revision: 9a66691f54ce4f56ab66f0d3cc8bbdfe5431225e
+  revision: 43c740e4fb9fc56af8383fc1d5aa8f54de092116
   specs:
     artisan_engine_attachments (0.0.1)
       artisan_engine_attachability
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_catalog.git
-  revision: 72fc7a984ab121cee5142cb67a5930d843ceeec3
+  revision: 788dbe0c3d84202065148d7cf4dce1b624ee7b24
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_core.git
-  revision: ee8285d5291d0b10bb15bab08a104312476f57d3
+  revision: be35be4a28b0e60c2ce8c07d575f150dcec64d7f
   specs:
     artisan_engine_core (0.0.1)
       barista (= 1.0.0)
@@ -42,10 +42,9 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_listability.git
-  revision: 79de719c6dfe24656934e65672cc708d4728e9a7
+  revision: 690c1077983462ec1391f2ed43edc59a23e63cd9
   specs:
     artisan_engine_listability (0.0.1)
-      ancestry (= 1.2.4)
       artisan_engine_core
 
 PATH
@@ -86,8 +85,6 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
-    ancestry (1.2.4)
-      activerecord (>= 2.2.2)
     arel (2.0.10)
     babosa (0.3.4)
     barista (1.0.0)
