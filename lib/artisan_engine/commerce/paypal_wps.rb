@@ -6,7 +6,7 @@ module ArtisanEngine
       @@secret = 'onelefts7anding'
       
       mattr_accessor :paypal_url
-      @@paypal_url = "https://www.sandbox.paypal.com/cgi_bin/webscr?secret=#{ ArtisanEngine::Commerce::PaypalWPS.secret }&"
+      @@paypal_url = "https://www.sandbox.paypal.com/cgi_bin/webscr?"
       
       mattr_accessor :seller_email
       @@seller_email = 'seller_1306290307_biz@followthewolf.com'
@@ -15,7 +15,7 @@ module ArtisanEngine
       @@return_url = 'http://artisanengine.com/orders'
 
       mattr_accessor :notify_url
-      @@notify_url = 'http://artisanengine.com/payment_notifications'
+      @@notify_url = "http://artisanengine.com/payment_notifications?secret=#{ ArtisanEngine::Commerce::PaypalWPS.secret }"
       
       mattr_accessor :paypal_certificate_id
       @@paypal_certificate_id = '8XWLPQF9JKCRQ'
