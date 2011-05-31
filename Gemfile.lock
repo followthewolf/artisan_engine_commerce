@@ -1,20 +1,14 @@
-PATH
-  remote: .
-  specs:
-    artisan_engine_commerce (0.0.1)
-      artisan_engine_catalog
-      carmen (= 0.2.7)
-      state_machine (= 1.0.0)
-
-PATH
-  remote: ../attachability
+GIT
+  remote: git@github.com:followthewolf/artisan_engine_attachability.git
+  revision: 7f7d28ad974518b7d4f7931504cd20f23caeee8a
   specs:
     artisan_engine_attachability (0.0.1)
       artisan_engine_core
       artisan_engine_listability
 
-PATH
-  remote: ../attachments
+GIT
+  remote: git@github.com:followthewolf/artisan_engine_attachments.git
+  revision: fb0c15f4438363ae2f20017cdf6287f5b3f2ee83
   specs:
     artisan_engine_attachments (0.0.1)
       artisan_engine_attachability
@@ -22,8 +16,9 @@ PATH
       dragonfly (= 0.9.1)
       fog (= 0.8.2)
 
-PATH
-  remote: ../catalog
+GIT
+  remote: git@github.com:followthewolf/artisan_engine_catalog.git
+  revision: 044c669e621dd30fdee780cd5f2e6d418685fb6f
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
@@ -31,8 +26,9 @@ PATH
       artisan_engine_listability
       money (= 3.6.1)
 
-PATH
-  remote: ../core
+GIT
+  remote: git@github.com:followthewolf/artisan_engine_core.git
+  revision: eba562bd307447214d87128fb1dde8e9203d5694
   specs:
     artisan_engine_core (0.0.1)
       barista (= 1.0.0)
@@ -44,11 +40,20 @@ PATH
       rails (= 3.0.7)
       rdiscount (= 1.6.8)
 
-PATH
-  remote: ../listability
+GIT
+  remote: git@github.com:followthewolf/artisan_engine_listability.git
+  revision: befe8813676f270988044d2da2d11e67ac552f9a
   specs:
     artisan_engine_listability (0.0.1)
       artisan_engine_core
+
+PATH
+  remote: .
+  specs:
+    artisan_engine_commerce (0.0.1)
+      artisan_engine_catalog
+      carmen (= 0.2.7)
+      state_machine (= 1.0.0)
 
 GEM
   remote: http://rubygems.org/
