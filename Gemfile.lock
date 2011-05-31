@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachability.git
-  revision: 7f7d28ad974518b7d4f7931504cd20f23caeee8a
+  revision: 96860cf6c670076724b9d728a78ab512b107a598
   specs:
     artisan_engine_attachability (0.0.1)
       artisan_engine_core
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachments.git
-  revision: fb0c15f4438363ae2f20017cdf6287f5b3f2ee83
+  revision: 8dc9342f4bed046087a1dcbf63c465c3a99b1d00
   specs:
     artisan_engine_attachments (0.0.1)
       artisan_engine_attachability
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_catalog.git
-  revision: 044c669e621dd30fdee780cd5f2e6d418685fb6f
+  revision: b473e91985a69b9ee96e31e4923982870f5abf65
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_core.git
-  revision: eba562bd307447214d87128fb1dde8e9203d5694
+  revision: 05d49a809f6974d5bd19149197c19140e9abaeed
   specs:
     artisan_engine_core (0.0.1)
       barista (= 1.0.0)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_listability.git
-  revision: befe8813676f270988044d2da2d11e67ac552f9a
+  revision: 9de63587db12a275b63812235e574ff77628cf3b
   specs:
     artisan_engine_listability (0.0.1)
       artisan_engine_core
@@ -202,7 +202,7 @@ GEM
       rspec (~> 2.5.0)
     ruby-hmac (0.4.0)
     rubyzip (0.9.4)
-    sass (3.1.1)
+    sass (3.1.2)
     selenium-webdriver (0.2.0)
       childprocess (>= 0.1.7)
       ffi (>= 1.0.7)

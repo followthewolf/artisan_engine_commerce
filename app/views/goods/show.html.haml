@@ -1,38 +1,39 @@
-= render 'update_current_variant_on_selection_change'
+#show_good
+	= render 'update_current_variant_on_selection_change'
 
-= form_for :line_item, :url => line_items_path do |f|
-	#information
-		%h1= @good.name
+	= form_for :line_item, :url => line_items_path do |f|
+		#information
+			%h1= @good.name
 
-		.description
-			:markdown
-				#{ RDiscount.new( @good.description, :filter_html ).to_html }
+			.description
+				:markdown
+					#{ RDiscount.new( @good.description, :filter_html ).to_html }
 
-		%table#options
-			%tbody
-				- for option_type in @good.option_types
-					%tr.option
-						%td= label_tag "#{ option_type.name }"
-						%td= select_tag_for_option_type( option_type )
+			%table#options
+				%tbody
+					- for option_type in @good.option_types
+						%tr.option
+							%td= label_tag "#{ option_type.name }"
+							%td= select_tag_for_option_type( option_type )
 
-		.price= price_for @variant
+			.price= price_for @variant
 		
-		- unless @good.unavailable?
-			= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
-			= f.submit 'Add to Order'
-		- else
-			This item is available by custom order only.
-		
-		
-	#images
-		#main_image
-			- if @variant.images.any?
-				= render @variant.images.first, :size => '475x475#', :gallery => 'gallery'
+			- unless @good.unavailable?
+				= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
+				= f.submit 'Add to Order'
 			- else
-				= display_image( nil, '470x470#' )
+				This item is available by custom order only.
+		
+		
+		#images
+			#main_image
+				- if @variant.images.any?
+					= render @variant.images.first, :size => '475x475#', :gallery => 'gallery'
+				- else
+					= display_image( nil, '470x470#' )
 
-		#additional_images
-			- if @variant.images.any?
-				= render @variant.images.drop( 1 ), :size => '150x150#', :gallery => 'gallery'
+			#additional_images
+				- if @variant.images.any?
+					= render @variant.images.drop( 1 ), :size => '150x150#', :gallery => 'gallery'
 	
 	
