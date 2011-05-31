@@ -1,5 +1,5 @@
 - content_for :javascripts do
-	= javascript_include_tag 'artisan_engine/catalog/tablesorter/jquery.tablesorter.min'
+	= javascript_include_tag 'artisan_engine/catalog/tablesorter/jquery.tablesorter.min' unless Rails.env.production?
 
 	:javascript
 		$(document).ready( function() {
@@ -7,7 +7,7 @@
 		});
 
 - content_for :stylesheets do
-	= stylesheet_link_tag 'artisan_engine/catalog/embed/tablesorter/blue/blue'
+	= stylesheet_link_tag 'artisan_engine/catalog/embed/tablesorter/blue/blue' unless Rails.env.production?
 
 %h1 Manage Orders
 %table#orders.tablesorter
