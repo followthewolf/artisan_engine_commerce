@@ -8,10 +8,12 @@
 			:markdown
 				#{ RDiscount.new( @good.description, :filter_html ).to_html }
 
-		#options
-			- for option_type in @good.option_types
-				= label_tag "#{ option_type.name }"
-				= select_tag_for_option_type( option_type )
+		%table#options
+			%tbody
+				- for option_type in @good.option_types
+					%tr.option
+						%td= label_tag "#{ option_type.name }"
+						%td= select_tag_for_option_type( option_type )
 
 		.price= price_for @variant
 		
@@ -25,7 +27,7 @@
 	#images
 		#main_image
 			- if @variant.images.any?
-				= render @variant.images.first, :size => '470x470#', :gallery => 'gallery'
+				= render @variant.images.first, :size => '475x475#', :gallery => 'gallery'
 			- else
 				= display_image( nil, '470x470#' )
 

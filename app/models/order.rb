@@ -24,6 +24,7 @@ class Order < ActiveRecord::Base
     
     state :pending do
       validates_presence_of :email, :shipping_address, :billing_address
+      validates_format_of   :email, :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     end
     
     after_transition :new     => :pending, :do => :set_patron

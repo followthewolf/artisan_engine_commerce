@@ -1,22 +1,36 @@
 = render 'shipping_is_billing'
 = render 'dynamic_state_selects'
 
+%h2 You are ordering:
+%table#order_line_items
+	%tbody
+		- for item in @order.line_items
+			%tr
+				%td.quantity= item.quantity.to_s + "x"
+				%td.description
+					=item.name
+					- unless item.options.blank?
+						%br
+						="(#{ item.options })"
+				%td.price= ( item.price * item.quantity ).format
+
+%p.tax_info Shipping and tax (if any) will be added during the secure payment process.
+
 = form_for @order, :url => checkout_path do |f|
-	#patron_info
-		%table
-			%tbody
-				%tr
-					%td
-						%strong
-							= f.label 		:email, 'Your E-Mail'
-							= f.text_field :email
-	
 	#addresses
 		#shipping_address
 			%h2 Ship To:
+			
 			%table
+				%p= "Please enter a valid E-Mail." if @order.errors[:email].any?
 				= render 'shared/form_errors', :object => @shipping_address
-		
+				
+				%tr#patron_info
+					%td.label
+						%strong
+							= f.label 		:email, 'Your Contact E-Mail'
+					%td.email= f.text_field :email
+				
 				= fields_for :shipping_address, @shipping_address do |a|
 					= render 'address_fields', :a => a, :type => 'shipping'
 			

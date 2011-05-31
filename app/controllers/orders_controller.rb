@@ -3,6 +3,7 @@ class OrdersController < FrontController
   
   # GET /order
   def new
+    redirect_to root_path if @order.line_items.empty?
   end
   
   # GET /checkout
