@@ -72,8 +72,14 @@ class Order < ActiveRecord::Base
   def shipping_address=( address )
     return unless address
        
-    duplicate_address = Address.where( :first_name => address.first_name,
-                                       :last_name  => address.last_name ).first
+    duplicate_address = Address.where( :first_name  => address.first_name,
+                                       :last_name   => address.last_name,
+                                       :address1    => address.address1,
+                                       :address2    => address.address2,
+                                       :city        => address.city,
+                                       :state       => address.state,
+                                       :country     => address.country,
+                                       :postal_code => address.postal_code ).first
                    
     if duplicate_address
       self.shipping_address_id = duplicate_address.id
@@ -86,8 +92,14 @@ class Order < ActiveRecord::Base
   def billing_address=( address )   
     return unless address
     
-    duplicate_address = Address.where( :first_name => address.first_name,
-                                       :last_name  => address.last_name ).first
+    duplicate_address = Address.where( :first_name  => address.first_name,
+                                       :last_name   => address.last_name,
+                                       :address1    => address.address1,
+                                       :address2    => address.address2,
+                                       :city        => address.city,
+                                       :state       => address.state,
+                                       :country     => address.country,
+                                       :postal_code => address.postal_code ).first
                    
     if duplicate_address
       self.billing_address_id = duplicate_address.id
