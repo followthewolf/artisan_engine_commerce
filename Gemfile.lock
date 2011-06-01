@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachments.git
-  revision: 8dc9342f4bed046087a1dcbf63c465c3a99b1d00
+  revision: 96442bdef624a1c68f506bd6bf246679413b56df
   specs:
     artisan_engine_attachments (0.0.1)
       artisan_engine_attachability
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_catalog.git
-  revision: 94b5df9d4b22170b486b6fbfb282a8f2df96b47d
+  revision: 22fc978ae2d553a57c450fce30cab9980ad22e5a
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
