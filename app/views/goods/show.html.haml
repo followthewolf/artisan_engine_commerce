@@ -16,9 +16,8 @@
 							%td= label_tag "#{ option_type.name }"
 							%td= select_tag_for_option_type( option_type )
 
-			.price= price_for @variant
-		
 			- unless @good.unavailable?
+				.price= price_for @variant
 				= hidden_field_tag 'line_item[good_id]', "#{ @good.id }"
 				= f.submit 'Add to Order'
 			- else

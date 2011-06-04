@@ -1,14 +1,12 @@
-GIT
-  remote: git@github.com:followthewolf/artisan_engine_attachability.git
-  revision: 8bc3b9b9153670611552e46a3c644923c9ed92a7
+PATH
+  remote: ../attachability
   specs:
     artisan_engine_attachability (0.0.1)
       artisan_engine_core
       artisan_engine_listability
 
-GIT
-  remote: git@github.com:followthewolf/artisan_engine_attachments.git
-  revision: 94ca01251a1c470b1ad0f61a946f719d22e51d19
+PATH
+  remote: ../attachments
   specs:
     artisan_engine_attachments (0.0.1)
       artisan_engine_attachability
@@ -16,9 +14,8 @@ GIT
       dragonfly (= 0.9.1)
       fog (= 0.8.2)
 
-GIT
-  remote: git@github.com:followthewolf/artisan_engine_catalog.git
-  revision: b40d1623270bcc9c8e5cab3384dec9d1dbf66459
+PATH
+  remote: ../catalog
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
@@ -26,9 +23,8 @@ GIT
       artisan_engine_listability
       money (= 3.6.1)
 
-GIT
-  remote: git@github.com:followthewolf/artisan_engine_core.git
-  revision: ab1917fab32e17ec7f5cb6fca94ee9c418de2c7f
+PATH
+  remote: ../core
   specs:
     artisan_engine_core (0.0.1)
       barista (= 1.0.0)
@@ -40,9 +36,8 @@ GIT
       rails (= 3.0.7)
       rdiscount (= 1.6.8)
 
-GIT
-  remote: git@github.com:followthewolf/artisan_engine_listability.git
-  revision: c29aaef73aaf867b7a9dbb20b281d89ef6ed92b0
+PATH
+  remote: ../listability
   specs:
     artisan_engine_listability (0.0.1)
       artisan_engine_core
