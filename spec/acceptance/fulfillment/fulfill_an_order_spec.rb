@@ -34,7 +34,7 @@ feature "Fulfill an Order", %q{
     # And the patron should receive an E-Mail.
     ActionMailer::Base.deliveries.should_not be_empty
     
-    email = ActionMailer::Base.deliveries[0]
+    email = ActionMailer::Base.deliveries[2]
     email.from.should    include 'noreply@artisanengine.com'
     email.to.should      include 'randy@skywalkersound.com'
     email.subject.should == 'Your order has shipped!'
