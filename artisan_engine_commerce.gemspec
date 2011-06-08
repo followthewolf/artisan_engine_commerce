@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'artisan_engine_commerce'
   s.summary     = 'Commerce functions for ArtisanEngine.'
-  s.description = 'Commerce functions for ArtisanEngine.'
+  s.description = 'Commerce functions for ArtisanEngine.rvm use 1.9.2@artisan-050711-gems'
   s.files       = Dir[ "{ app, config, lib }/**/*" ] + [ "Gemfile" ]
   s.version     = '0.0.1'
 
