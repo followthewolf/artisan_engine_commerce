@@ -1,1 +1,13 @@
-Your order has shipped.
+Dear <%= @patron.first_name %>,
+		
+The following items from your order have shipped:
+		
+<% for line_item in @fulfillment.line_items %>
+	<%= line_item.quantity.to_s + "x " + line_item.name %>
+	<%= line_item.options unless line_item.options.empty? %>
+<% end %>
+		
+Thank you for your support!
+		
+Sincerely,
+<%= ArtisanEngine::Commerce.store_name %>

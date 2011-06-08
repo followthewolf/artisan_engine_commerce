@@ -8,7 +8,10 @@
 	= address.address2
 	%br
 
-= "#{ address.city }, #{ Carmen.state_name( address.state ) } #{address.postal_code }"
+= address.city
+= ", #{ Carmen.state_name( address.state ) }" unless address.state.blank?
+= address.postal_code
+
 %br
 
 = Carmen.country_name( address.country )

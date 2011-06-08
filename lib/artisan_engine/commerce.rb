@@ -14,6 +14,9 @@ module ArtisanEngine
     
     mattr_accessor :domain
     @@domain = 'artisanengine.com'
+    
+    mattr_accessor :store_name
+    @@store_name = 'ArtisanEngine'
   
     # ------------------ Autoload Necessary Modules ------------------ #
     

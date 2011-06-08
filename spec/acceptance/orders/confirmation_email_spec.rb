@@ -7,6 +7,8 @@ feature "Order Confirmation E-Mail", %q{
 } do
   
   background do
+    ActionMailer::Base.deliveries.clear
+    
     # Given there is a purchased order,
     create_purchased_order
   end

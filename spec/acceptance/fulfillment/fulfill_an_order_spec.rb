@@ -9,6 +9,7 @@ feature "Fulfill an Order", %q{
   background do
     # Given there is a paid order,
     create_purchased_order
+    ActionMailer::Base.deliveries.clear
     
     # And I am on the order's detail page,
     visit "/manage/orders/#{ Order.last.id }"
@@ -33,8 +34,8 @@ feature "Fulfill an Order", %q{
     
     # And the patron should receive an E-Mail.
     ActionMailer::Base.deliveries.should_not be_empty
-    
-    email = ActionMailer::Base.deliveries[2]
+
+    email = ActionMailer::Base.deliveries[0]
     email.from.should    include 'noreply@artisanengine.com'
     email.to.should      include 'randy@skywalkersound.com'
     email.subject.should == 'Your order has shipped!'
