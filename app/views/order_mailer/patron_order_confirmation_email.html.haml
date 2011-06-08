@@ -1,0 +1,26 @@
+%html
+	%head
+		%meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+		
+	%body
+		%p Dear #{ @order.patron.first_name },
+		
+		%p We have received payment for the following items:
+		
+		%table
+			%tbody
+				- for line_item in @order.line_items
+					%tr.line_item
+						%td.quantity
+							= line_item.quantity.to_s + "x"
+						%td.description
+							= line_item.name
+							%br
+							= line_item.options
+		
+		%p You will receive a confirmation when your items ship.
+		
+		%p
+			With thanks,
+			%br
+			ArtisanEngine

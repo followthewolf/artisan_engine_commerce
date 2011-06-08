@@ -35,6 +35,8 @@ class Order < ActiveRecord::Base
     event :purchase! do
       transition :pending => :purchased
     end
+    
+    after_transition :pending => :purchased, :do => :send_order_confirmation_emails
   end
   
   # ----------------------- Instance Methods ----------------------- #
@@ -156,6 +158,11 @@ class Order < ActiveRecord::Base
   # ------------------ Private Instance Methods -------------------- #
   
   private
+  
+    def send_order_confirmation_emails
+      OrderMailer.artisan_order_confirmation_email( self ).deliver
+      OrderMailer.patron_order_confirmation_email( self ).deliver
+    end
     
     # Return a new line item if no duplicates exist. Otherwise, return the duplicate line item with new quantity.
     def add_line_item_to_order( variant )

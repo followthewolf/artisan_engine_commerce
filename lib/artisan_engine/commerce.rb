@@ -8,6 +8,12 @@ module ArtisanEngine
     
     mattr_accessor :from_email
     @@from_email = 'noreply@artisanengine.com'
+    
+    mattr_accessor :artisan_email
+    @@artisan_email = 'artisan@artisanengine.com'
+    
+    mattr_accessor :domain
+    @@domain = 'artisanengine.com'
   
     # ------------------ Autoload Necessary Modules ------------------ #
     

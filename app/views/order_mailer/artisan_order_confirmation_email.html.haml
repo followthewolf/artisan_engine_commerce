@@ -1,0 +1,31 @@
+%html
+	%head
+		%meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+		
+	%body
+		%p You have received an order from #{ @order.patron.first_name } #{ @order.patron.last_name }!
+		
+		%p Goods ordered:
+		
+		%table
+			%tbody
+				- for line_item in @order.line_items
+					%tr.line_item
+						%td.quantity
+							= line_item.quantity.to_s + "x"
+						%td.description
+							= line_item.name
+							%br
+							= line_item.options
+		
+		%p Shipping Address:
+		= render @order.shipping_address
+		
+		%p 
+			You can view and manage this order's details 
+			= link_to 'here.', manage_order_url( @order, :host => ArtisanEngine::Commerce.domain )
+		
+		%p
+			Love,
+			%br
+			ArtisanEngine
