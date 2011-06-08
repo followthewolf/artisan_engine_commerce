@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530230001) do
+ActiveRecord::Schema.define(:version => 20110608201820) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "patron_id"
@@ -47,12 +47,13 @@ ActiveRecord::Schema.define(:version => 20110530230001) do
   end
 
   create_table "fulfillments", :force => true do |t|
-    t.integer  "order_id",                     :null => false
-    t.integer  "cost_in_cents", :default => 0, :null => false
-    t.string   "currency",                     :null => false
+    t.integer  "order_id",                       :null => false
+    t.integer  "cost_in_cents",   :default => 0, :null => false
+    t.string   "currency",                       :null => false
     t.string   "tracking"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "shipping_method"
   end
 
   create_table "goods", :force => true do |t|

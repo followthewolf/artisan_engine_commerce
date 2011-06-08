@@ -1,0 +1,26 @@
+%html
+	%head
+		%meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+		
+	%body
+		%p Dear #{ @patron.first_name },
+		
+		%p The following items from your order have shipped:
+		
+		%table
+			%tbody
+				- for line_item in @fulfillment.line_items
+					%tr.line_item
+						%td.quantity
+							= line_item.quantity.to_s + "x"
+						%td.description
+							= line_item.name
+							%br
+							= line_item.options
+		
+		%p Thank you for your support!
+		
+		%p
+			Sincerely,
+			%br
+			ArtisanEngine

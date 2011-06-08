@@ -16,8 +16,8 @@ module ArtisanEngine
         def copy_installation_migration
           migration_template 'migrations/install_commerce.rb', 
                              'db/migrate/install_commerce.rb'
+          sleep 1 # to prevent duplicate timestamps.
         end
-        
       end
     end
   end

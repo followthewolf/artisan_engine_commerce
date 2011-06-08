@@ -13,6 +13,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency      'carmen',               '0.2.7'
   
   # ------------------- Development Dependencies ------------------- #
+  
+  s.add_development_dependency  'sqlite3',              '1.3.3'
+  
   ## ------------------------- Test Suite ------------------------- ##
   
   s.add_development_dependency  'rspec-rails',          '2.5.0'

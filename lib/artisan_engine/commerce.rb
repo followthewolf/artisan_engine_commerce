@@ -5,6 +5,9 @@ require 'artisan_engine/commerce'
 
 module ArtisanEngine
   module Commerce
+    
+    mattr_accessor :from_email
+    @@from_email = 'noreply@artisanengine.com'
   
     # ------------------ Autoload Necessary Modules ------------------ #
     

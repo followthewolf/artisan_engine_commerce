@@ -21,13 +21,26 @@ feature "Fulfill an Order", %q{
     # And I check the line item,
     check 'Cloak of No Particular Color'
     
-    # And I fill in my tracking number and cost and click Fulfill,
-    fill_in 'Cost',     :with => 25
-    fill_in 'Tracking', :with => 'ABC123'
+    # And I fill in my shipping method, tracking number, and cost and click Fulfill,
+    fill_in 'Shipping Method', :with => 'UPS 3-Day'
+    fill_in 'Cost',            :with => 25
+    fill_in 'Tracking',        :with => 'ABC123'
     
     click_button 'Fulfill'
     
     # Then I should see my order fulfilled.
     page.should have_content 'Fulfilled'
+    
+    # And the patron should receive an E-Mail.
+    ActionMailer::Base.deliveries.should_not be_empty
+    
+    email = ActionMailer::Base.deliveries[0]
+    email.from.should    include 'noreply@artisanengine.com'
+    email.to.should      include 'randy@skywalkersound.com'
+    email.subject.should == 'Your order has shipped!'
+    email.encoded.should =~ /The following items from your order have shipped:/
+    email.encoded.should =~ /1x/
+    email.encoded.should =~ /Cloak of No Particular Color/
+    email.encoded.should =~ /Thank you/
   end
 end
