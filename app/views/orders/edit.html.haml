@@ -30,6 +30,11 @@
 						%strong
 							= f.label 		:email, 'Your Contact E-Mail'
 					%td.email= f.text_field :email
+					
+				%tr
+					%td{ :colspan => 2 }
+						= check_box_tag 'order[subscribed]', 1, true
+						= f.label 	  :subscribed, "Send me news and special offers from #{ ArtisanEngine::Commerce.store_name }."
 				
 				= fields_for :shipping_address, @shipping_address do |a|
 					= render 'address_fields', :a => a, :type => 'shipping'

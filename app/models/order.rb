@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessor                 :email
+  attr_accessor                 :email, :subscribed
   
   has_many                      :line_items
   has_many                      :adjustments
@@ -52,7 +52,8 @@ class Order < ActiveRecord::Base
   def set_patron
     self.patron = Patron.find_or_create_by_email( :email      => email, 
                                                   :first_name => billing_address.first_name, 
-                                                  :last_name  => billing_address.last_name )
+                                                  :last_name  => billing_address.last_name,
+                                                  :subscribed => subscribed )
     save
   end
   

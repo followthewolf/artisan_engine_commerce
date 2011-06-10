@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608201820) do
+ActiveRecord::Schema.define(:version => 20110610222200) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "patron_id"
@@ -137,11 +137,12 @@ ActiveRecord::Schema.define(:version => 20110608201820) do
   end
 
   create_table "patrons", :force => true do |t|
-    t.string   "first_name", :null => false
-    t.string   "last_name",  :null => false
-    t.string   "email",      :null => false
+    t.string   "first_name",                    :null => false
+    t.string   "last_name",                     :null => false
+    t.string   "email",                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "subscribed", :default => false
   end
 
   create_table "slugs", :force => true do |t|

@@ -9,6 +9,9 @@ module ArtisanEngine
         source_root File.expand_path( '../templates', __FILE__ )
   
         def copy_update_migrations
+          migration_template 'migrations/add_subscribed_to_patrons.rb',
+                             'db/migrate/add_subscribed_to_patrons.rb'
+          
           migration_template 'migrations/add_shipping_method_to_fulfillments.rb',
                              'db/migrate/add_shipping_method_to_fulfillments.rb'
         end

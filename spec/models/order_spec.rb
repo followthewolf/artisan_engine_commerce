@@ -40,6 +40,7 @@ describe Order do
         
         before do
           order.email            = 'patron@example.com'
+          order.subscribed       = true
           order.billing_address  = Factory :address
           order.shipping_address = Factory :address
         end
@@ -59,7 +60,7 @@ describe Order do
         end
         
         context "if a patron does not exist with the order's E-Mail" do
-          it "creates a new patron with the billing address's first and last name" do
+          it "creates a new patron with the billing address's first and last name and order's subscription status" do
             expect {
               order.checkout!
             }.to change( Patron, :count ).by( 1 )
@@ -67,6 +68,7 @@ describe Order do
             order.patron.email.should      == 'patron@example.com'
             order.patron.first_name.should == order.billing_address.first_name
             order.patron.last_name.should  == order.billing_address.last_name
+            order.patron.subscribed.should == true
           end
         end
                                        

@@ -10,16 +10,6 @@ describe Patron do
       new_patron.should be_valid
     end
     
-    it "is not valid without a first name" do
-      new_patron.first_name = nil
-      new_patron.should_not be_valid
-    end
-    
-    it "is not valid without a last name" do
-      new_patron.last_name = nil
-      new_patron.should_not be_valid
-    end
-    
     it "is not valid without an E-Mail" do
       new_patron.email = nil
       new_patron.should_not be_valid
