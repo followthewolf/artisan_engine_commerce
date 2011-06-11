@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611005234) do
+ActiveRecord::Schema.define(:version => 20110611165611) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "patron_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20110611005234) do
 
   add_index "goods", ["cached_slug"], :name => "index_goods_on_cached_slug", :unique => true
 
-  create_table "goods_option_types", :id => false, :force => true do |t|
+  create_table "goods_option_types", :force => true do |t|
     t.integer "good_id",        :null => false
     t.integer "option_type_id", :null => false
   end
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(:version => 20110611005234) do
     t.datetime "updated_at"
   end
 
-  create_table "option_values_variants", :id => false, :force => true do |t|
+  create_table "option_values_variants", :force => true do |t|
     t.integer "option_value_id", :null => false
     t.integer "variant_id",      :null => false
   end
