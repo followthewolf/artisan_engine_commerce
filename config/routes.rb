@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   
   get  '/paypal'  => 'orders#paypal', :as => :paypal
   post '/ipns'    => 'order_transactions#ipns'
+  
+  post '/subscribe' => 'patrons#subscribe', :as => :subscribe
 end

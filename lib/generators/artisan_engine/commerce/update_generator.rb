@@ -9,6 +9,9 @@ module ArtisanEngine
         source_root File.expand_path( '../templates', __FILE__ )
   
         def copy_update_migrations
+          migration_template 'migrations/patrons_names_can_be_null.rb',
+                             'db/migrate/patrons_names_can_be_null.rb'
+          
           migration_template 'migrations/add_subscribed_to_patrons.rb',
                              'db/migrate/add_subscribed_to_patrons.rb'
           

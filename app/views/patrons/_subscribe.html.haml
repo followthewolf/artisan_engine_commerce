@@ -1,0 +1,5 @@
+= form_tag subscribe_path, :id => 'subscribe' do |f|
+	#subscribe_notice= flash[ :subscribe_notice ]
+	
+	= text_field_tag :email
+	= submit_tag 'Join'
