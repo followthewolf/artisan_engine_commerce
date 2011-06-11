@@ -138,8 +138,16 @@ class Order < ActiveRecord::Base
       :notify_url    => ArtisanEngine::Commerce::PaypalWPS.notify_url,
       :cancel_return => ArtisanEngine::Commerce::PaypalWPS.cancel_return_url,
       :cert_id       => ArtisanEngine::Commerce::PaypalWPS.paypal_certificate_id,
-      :no_shipping   => 1,
-      :no_note       => 1
+      
+      :first_name    => shipping_address.first_name,
+      :last_name     => shipping_address.last_name,
+      :email         => email,
+      :address1      => shipping_address.address1,
+      :address2      => shipping_address.address2,
+      :city          => shipping_address.city,
+      :country       => shipping_address.country,
+      :state         => shipping_address.state,
+      :zip           => shipping_address.postal_code
     }
     
     line_items.each_with_index do |item, index|
