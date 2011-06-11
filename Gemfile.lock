@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachability.git
-  revision: 9801d2f1a74a41087d484c858bcfcf0c8aef4606
+  revision: ef9cbdcdd6a561c0004cc558ac515670ee2126e2
   specs:
     artisan_engine_attachability (0.0.1)
       artisan_engine_core
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_attachments.git
-  revision: df4dcda5a847b82557316ca6093bdbfc2baec81e
+  revision: 231f4aba8602165ded0835c75fe72bac4ce894b5
   specs:
     artisan_engine_attachments (0.0.1)
       artisan_engine_attachability
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_catalog.git
-  revision: 45e056b08de14adc8eefd209e5c99b4413e7a31a
+  revision: 40053b244c480c73d3f613a2e74c61be29b64674
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_core.git
-  revision: 2ddf4c7bc7903c819b706867c16c0e3dcc6ac139
+  revision: b156d841fa2b16c483112b3e652978c205d7514c
   specs:
     artisan_engine_core (0.0.1)
       barista (= 1.0.0)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_listability.git
-  revision: f9c2087dc28ddb247b08aa3d57539443d7bccc48
+  revision: 6278124da90d4235ea30b087c7dedd97489a49e7
   specs:
     artisan_engine_listability (0.0.1)
       artisan_engine_core
