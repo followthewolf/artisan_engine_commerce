@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:followthewolf/artisan_engine_catalog.git
-  revision: d2441527a6a4f350191f1555aecd02c632da8d45
+  revision: f04874e605251623da43b9f9aeab58b0ede82592
   specs:
     artisan_engine_catalog (0.0.1)
       artisan_engine_attachments
